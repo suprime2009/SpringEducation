@@ -1,20 +1,12 @@
 package com.edu.spring;
 
-import com.edu.spring.dao.UserRepository;
-import com.edu.spring.model.Admin;
+import com.edu.spring.persistence.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.sql.DataSource;
 
 @SpringBootApplication
-@Configuration
 public class Application extends SpringBootServletInitializer{
 
 
@@ -38,18 +29,15 @@ public class Application extends SpringBootServletInitializer{
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(applicationClass);
+        return application.sources(Application.class);
     }
 
-    private static Class<Application> applicationClass = Application.class;
-
-    
-    @RestController
-    class GreetingController {
-
-        @RequestMapping("/hello/{name}")
-        String hello(@PathVariable String name) {
-            return userRepository.findByMobile(name).getEmail();
-        }
-    }
+//    @RestController
+//    class GreetingController {
+//
+//        @RequestMapping("/hello/{name}")
+//        String hello(@PathVariable String name) {
+//            return userRepository.findByMobile(name).getEmail();
+//        }
+//    }
 }

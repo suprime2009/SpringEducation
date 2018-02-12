@@ -27,10 +27,10 @@
 
 	<dependencies>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.boot</groupId>-->
+			<!--<artifactId>spring-boot-starter</artifactId>-->
+		<!--</dependency>-->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -55,7 +55,25 @@
 			<version>2.6.0</version>
 		</dependency>
 
+		<!-- JSTL tag lib -->
+		<dependency>
+			<groupId>javax.servlet.jsp.jstl</groupId>
+			<artifactId>javax.servlet.jsp.jstl-api</artifactId>
+			<version>1.2.1</version>
+		</dependency>
 
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+
+		<!-- Tomcat for JSP rendering -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
+		</dependency>
 		<!--
 
 		<dependency>
@@ -122,28 +140,28 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<!--<plugin>-->
-				<!--<artifactId>maven-resources-plugin</artifactId>-->
-				<!--<version>2.6</version>-->
-				<!--<executions>-->
-					<!--<execution>-->
-						<!--<id>copy-resources</id>-->
-						<!--<phase>validate</phase>-->
-						<!--<goals>-->
-							<!--<goal>copy-resources</goal>-->
-						<!--</goals>-->
-						<!--<configuration>-->
-							<!--<outputDirectory>${basedir}/target/classes/static</outputDirectory>-->
-							<!--<resources>-->
-								<!--<resource>-->
-									<!--<directory>src/main/webapp</directory>-->
-									<!--<filtering>true</filtering>-->
-								<!--</resource>-->
-							<!--</resources>-->
-						<!--</configuration>-->
-					<!--</execution>-->
-				<!--</executions>-->
-			<!--</plugin>-->
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/classes/static</outputDirectory>
+							<resources>
+								<resource>
+									<directory>src/main/webapp</directory>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 

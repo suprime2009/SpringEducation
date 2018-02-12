@@ -1,4 +1,4 @@
-package com.edu.spring.dao;
+package com.edu.spring.persistence.repository;
 
 import com.edu.spring.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
